@@ -6,14 +6,6 @@ import { Post, Prisma } from '@prisma/client';
 export class PostService {
   constructor(private prisma: PrismaService) {}
 
-  async post(
-    postWhereUniqueInput: Prisma.PostWhereUniqueInput,
-  ): Promise<Post | null> {
-    return this.prisma.post.findUnique({
-      where: postWhereUniqueInput,
-    });
-  }
-
   async posts(params: {
     skip?: number;
     take?: number;
@@ -29,5 +21,17 @@ export class PostService {
       where,
       orderBy,
     });
+  }
+
+  async post(
+    postWhereUniqueInput: Prisma.PostWhereUniqueInput,
+  ): Promise<Post | null> {
+    return this.prisma.post.findUnique({
+      where: postWhereUniqueInput,
+    });
+  }
+
+  async createPost(data: Prisma.PostCreateInput): Promise<Post | null> {
+    return this.prisma.post.create({ data });
   }
 }

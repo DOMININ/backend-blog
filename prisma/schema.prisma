@@ -11,23 +11,23 @@ datasource db {
 }
 
 model Post {
-  id                  Int      @id @default(autoincrement())
-  title               String
-  content             String?
-  date_published      DateTime @default(now())
-  category            Category @relation(fields: [categoryCategory_id], references: [category_id])
-  tags                Tag[]
-  categoryCategory_id Int
+  id             Int        @id @default(autoincrement())
+  title          String
+  content        String
+  date_published DateTime   @default(now())
+  category       Categories @relation(fields: [categoryId], references: [category_id])
+  tags           Tags[]
+  categoryId     String
 }
 
-model Category {
-  category_id   Int    @id @default(autoincrement())
+model Categories {
+  category_id   String @id
   category_name String
   post          Post[]
 }
 
-model Tag {
-  tag_id   Int    @id @default(autoincrement())
+model Tags {
+  tag_id   String @id
   tag_name String
   post     Post[]
 }
