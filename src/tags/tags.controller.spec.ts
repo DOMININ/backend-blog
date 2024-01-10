@@ -20,14 +20,14 @@ describe('TagsController', () => {
 
   describe('getTags', () => {
     test('should return an array of tags', async () => {
-      const dbTags = [{ tag_id: 'test', tag_name: 'Test' }];
+      const dbTags = [{ id: 'test', name: 'Test' }];
       jest.spyOn(tagsService, 'tags').mockResolvedValue(dbTags);
 
       const result = await tagsController.getTags();
 
       const expectedResult = dbTags.map((tags) => ({
-        id: tags.tag_id,
-        name: tags.tag_name,
+        id: tags.id,
+        name: tags.name,
       }));
       expect(result).toEqual(expectedResult);
     });

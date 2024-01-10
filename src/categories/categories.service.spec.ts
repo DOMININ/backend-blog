@@ -33,8 +33,8 @@ describe('CategoriesService', () => {
   describe('categories', () => {
     test('should return an array of categories', async () => {
       const expectedCategories: Categories[] = [
-        { category_id: 'tag1', category_name: 'Tag1' },
-        { category_id: 'tag2', category_name: 'Tag2' },
+        { id: 'tag1', name: 'Tag1' },
+        { id: 'tag2', name: 'Tag2' },
       ];
 
       jest
