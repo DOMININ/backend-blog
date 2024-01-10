@@ -20,8 +20,8 @@ export class CategoriesController {
   async getCategories(): Promise<AllCategoriesDto[]> {
     const dbCategories = await this.categoriesService.categories();
     return dbCategories.map((category) => ({
-      id: category.category_id,
-      name: category.category_name,
+      id: category.id,
+      name: category.name,
     }));
   }
 }

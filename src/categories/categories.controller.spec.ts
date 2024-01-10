@@ -21,7 +21,7 @@ describe('CategoriesController', () => {
 
   describe('getTags', () => {
     test('should return an array of categories', async () => {
-      const dbCategories = [{ category_id: 'test', category_name: 'Test1' }];
+      const dbCategories = [{ id: 'test', name: 'Test1' }];
       jest
         .spyOn(categoriesService, 'categories')
         .mockResolvedValue(dbCategories);
@@ -29,8 +29,8 @@ describe('CategoriesController', () => {
       const result = await categoriesController.getCategories();
 
       const expectedResult = dbCategories.map((category) => ({
-        id: category.category_id,
-        name: category.category_name,
+        id: category.id,
+        name: category.name,
       }));
       expect(result).toEqual(expectedResult);
     });

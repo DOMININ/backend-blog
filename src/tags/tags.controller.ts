@@ -20,8 +20,8 @@ export class TagsController {
   async getTags(): Promise<AllTagsDto[]> {
     const dbTags = await this.tagsService.tags();
     return dbTags.map((tags) => ({
-      id: tags.tag_id,
-      name: tags.tag_name,
+      id: tags.id,
+      name: tags.name,
     }));
   }
 }

@@ -16,18 +16,18 @@ async function main() {
     case 'categories':
       await prisma.categories.createMany({
         data: [
-          { category_id: 'programming', category_name: 'Programming' },
-          { category_id: 'life', category_name: 'My life' },
-          { category_id: 'education', category_name: 'Education' },
+          { id: 'programming', name: 'Programming' },
+          { id: 'life', name: 'My life' },
+          { id: 'education', name: 'Education' },
         ],
       });
       break;
     case 'tags':
       await prisma.tags.createMany({
         data: [
-          { tag_id: 'react', tag_name: 'React' },
-          { tag_id: 'javascript', tag_name: 'JavaScript' },
-          { tag_id: 'typescript', tag_name: 'TypeScript' },
+          { id: 'react', name: 'React' },
+          { id: 'javascript', name: 'JavaScript' },
+          { id: 'typescript', name: 'TypeScript' },
         ],
       });
       break;

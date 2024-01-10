@@ -33,8 +33,8 @@ describe('TagsService', () => {
   describe('tags', () => {
     test('should return an array of tags', async () => {
       const expectedTags: Tags[] = [
-        { tag_id: 'tag1', tag_name: 'Tag1' },
-        { tag_id: 'tag2', tag_name: 'Tag2' },
+        { id: 'tag1', name: 'Tag1' },
+        { id: 'tag2', name: 'Tag2' },
       ];
 
       jest

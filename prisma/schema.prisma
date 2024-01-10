@@ -15,19 +15,20 @@ model Post {
   title          String
   content        String
   date_published DateTime   @default(now())
-  category       Categories @relation(fields: [categoryId], references: [category_id])
-  tags           Tags[]
+  category       Categories @relation(fields: [categoryId], references: [id])
   categoryId     String
+  tags           Tags[]
+  tagIds         String[]
 }
 
 model Categories {
-  category_id   String @id
-  category_name String
-  post          Post[]
+  id   String @id
+  name String
+  post Post[]
 }
 
 model Tags {
-  tag_id   String @id
-  tag_name String
-  post     Post[]
+  id   String @id
+  name String
+  post Post[]
 }
